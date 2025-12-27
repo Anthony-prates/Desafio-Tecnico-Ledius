@@ -1,0 +1,240 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: linear-gradient(135deg, #000002 0%, #1a1a4b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  color: #e4e4e7;
+}
+
+/* Logo */
+.logo-link {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.logo-link:hover .logo {
+  transform: scale(1.05);
+}
+
+/* Caixa principal */
+.container {
+  background: linear-gradient(145deg, #1d1d29 0%, #26265f 100%);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Título */
+.container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #d4d4d8;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+}
+
+/* Inputs e select */
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fafafa;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  transition: all 0.3s ease, background-color 0s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Corrige o fundo branco do autocomplete do navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(29, 29, 41, 1) inset !important;
+  -webkit-text-fill-color: #fafafa !important;
+  box-shadow: 0 0 0 1000px rgba(29, 29, 41, 1) inset !important;
+  background-color: rgba(29, 29, 41, 1) !important;
+  caret-color: #fafafa;
+  transition: background-color 5000s ease-in-out 0s;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Garante que o input sempre tenha fundo escuro */
+#valor {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#valor:hover {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+#valor:focus {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+}
+
+#valor:-webkit-autofill,
+#valor:-webkit-autofill:hover,
+#valor:-webkit-autofill:focus,
+#valor:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(29, 29, 41, 1) inset !important;
+  -webkit-text-fill-color: #fafafa !important;
+  box-shadow: 0 0 0 1000px rgba(29, 29, 41, 1) inset !important;
+  background-color: rgba(29, 29, 41, 1) !important;
+  caret-color: #fafafa !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+input:hover,
+select:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Estilização das opções do select (dropdown) */
+select option {
+  background-color: #2a2a3e;
+  color: #fafafa;
+  padding: 12px;
+  border: none;
+}
+
+select option:hover {
+  background-color: #007bff;
+}
+
+select option:checked {
+  background-color: #007bff;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  letter-spacing: 0.3px;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Resultado */
+#resultado {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .logo {
+    top: 20px;
+    left: 20px;
+    width: 60px;
+  }
+
+  .container {
+    padding: 32px 24px;
+  }
+
+  .container h1 {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+}

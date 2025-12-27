@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simulador de Taxas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="https://ledius.com.br/" class="logo-link">
+      <img src="assets/ledius.png" alt="Logo da empresa" class="logo" />
+    </a>
+
+    <div class="container">
+      <h1>Simulador de Taxas</h1>
+
+      <label for="valor">Valor da venda:</label>
+      <input
+        type="text"
+        id="valor"
+        inputmode="decimal"
+        placeholder="Ex: 100,00"
+        autocomplete="off"
+      />
+
+      <label for="metodo">Método de pagamento:</label>
+      <select id="metodo">
+        <option value="">Selecione</option>
+        <option value="pix">Pix</option>
+        <option value="debito">Débito</option>
+        <option value="credito">Crédito</option>
+      </select>
+
+      <button id="btnCalcular">Calcular Líquido</button>
+
+      <p id="resultado"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
