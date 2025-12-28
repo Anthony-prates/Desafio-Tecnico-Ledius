@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # permite acesso do frontend
 
-# Constantes das taxas de desconto
+# Variáveis das taxas de desconto
 TAXA_PIX = 0.40  # Taxa fixa para PIX
 TAXA_DEBITO = 0.03  # 3% para débito
 TAXA_CREDITO = 0.05  # 5% para crédito
@@ -21,13 +21,11 @@ def calcular_desconto(valor, metodo_pagamento):
     Returns:
         tuple: (desconto, valor_liquido) ou None se método inválido
     """
-    metodo = metodo_pagamento.lower() if metodo_pagamento else None
-
-    if metodo == "pix":
+    if metodo_pagamento == "pix":
         desconto = TAXA_PIX
-    elif metodo == "debito":
+    elif metodo_pagamento == "debito":
         desconto = valor * TAXA_DEBITO
-    elif metodo == "credito":
+    elif metodo_pagamento == "credito":
         desconto = valor * TAXA_CREDITO
     else:
         return None
@@ -35,7 +33,6 @@ def calcular_desconto(valor, metodo_pagamento):
     valor_liquido = valor - desconto
     # Garante que o valor líquido nunca seja negativo
     valor_liquido = max(0, valor_liquido)
-    desconto = min(desconto, valor)  # Ajusta desconto se necessário
 
     return round(desconto, 2), round(valor_liquido, 2)
 
@@ -80,9 +77,10 @@ def calcular():
 
     # Calcula desconto e valor líquido
     resultado = calcular_desconto(valor, metodo)
+    
     if resultado is None:
         return jsonify({"erro": "Método de pagamento inválido. Use: 'pix', 'debito' ou 'credito'"}), 400
-
+    
     desconto, valor_liquido = resultado
 
     return jsonify({
