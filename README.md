@@ -3,6 +3,7 @@
 ## Projeto Ledius
 
 ## Licença
+
 Este projeto está licenciado sob a licença MIT.
 
 ---
@@ -86,7 +87,7 @@ projeto-ledius/
 
 - **`index.html`**: Interface do usuário com formulário de entrada
 - **`style.css`**: Design moderno com tema escuro, gradientes e animações suaves
-- **`script.js`**: Validação de entrada, comunicação com API e atualização dinâmica da interface
+- **`script.js`**: Formatação automática de moeda, validação de entrada, comunicação com API e atualização dinâmica da interface
 
 ---
 
@@ -105,7 +106,8 @@ A aplicação calcula descontos baseados em três métodos de pagamento:
 #### No Frontend:
 
 - Validação de campos obrigatórios
-- Validação de formato numérico (apenas números, ponto e vírgula)
+- Formatação automática de moeda brasileira (R$ 1.000,00) durante a digitação
+- Validação de formato numérico (apenas números)
 - Validação específica para PIX (valor mínimo maior que R$ 0,40)
 - Prevenção de entrada de caracteres inválidos
 - Tratamento de erros de conexão
@@ -120,7 +122,15 @@ A aplicação calcula descontos baseados em três métodos de pagamento:
 - Validação específica para regras de negócio (PIX)
 - Garantia de que valor líquido nunca seja negativo
 
-### 5.3. Interface do Usuário
+### 5.3. Formatação de Moeda
+
+- **Formatação Automática**: Campo de valor formata automaticamente como moeda brasileira (R$ 1.000,00) durante a digitação
+- **Padrão Brasileiro**: Utiliza formato brasileiro com separador de milhar (ponto) e decimal (vírgula)
+- **Controle de Cursor**: Mantém o cursor na posição correta durante a formatação
+- **Proteção de Entrada**: Impede digitação antes do prefixo "R$ " e previne caracteres inválidos
+- **Compatível com Colar**: Valores colados são automaticamente formatados
+
+### 5.4. Interface do Usuário
 
 - **Design Moderno**: Tema escuro profissional com gradientes sutis
 - **Responsividade**: Adaptável a diferentes tamanhos de tela
@@ -136,6 +146,7 @@ A aplicação calcula descontos baseados em três métodos de pagamento:
 
 - **Constantes configuráveis**: Taxas definidas como constantes no topo do código
 - **Funções reutilizáveis**: Lógica de cálculo separada em função dedicada
+- **Formatação de dados**: Funções dedicadas para formatação e conversão de valores
 - **Documentação**: Docstrings explicando parâmetros e retornos
 - **Código limpo**: Estrutura organizada e fácil manutenção
 - **Tratamento de exceções**: Try/catch para operações que podem falhar
@@ -211,7 +222,7 @@ A aplicação calcula descontos baseados em três métodos de pagamento:
 ### Testando a Aplicação
 
 1. Abra a aplicação no navegador
-2. Digite um valor de venda (ex: 100,00)
+2. Digite um valor de venda (o campo formatará automaticamente como moeda brasileira, ex: R$ 100,00)
 3. Selecione um método de pagamento (PIX, Débito ou Crédito)
 4. Clique em "Calcular Líquido"
 5. Veja o resultado com o valor líquido e desconto aplicado
@@ -249,6 +260,7 @@ A aplicação calcula descontos baseados em três métodos de pagamento:
 
 ✅ **Arquitetura bem estruturada** com separação clara entre frontend e backend  
 ✅ **Validações robustas** em múltiplas camadas  
+✅ **Formatação automática de moeda** com padrão brasileiro  
 ✅ **Interface moderna e responsiva** com design profissional  
 ✅ **Código limpo e documentado** seguindo boas práticas  
 ✅ **Tratamento adequado de erros** com mensagens claras  
@@ -261,9 +273,10 @@ Este projeto demonstrou a capacidade de:
 - Desenvolver uma aplicação full-stack completa
 - Implementar validações de dados em múltiplas camadas
 - Criar interfaces modernas e responsivas
+- Implementar formatação de moeda em tempo real
 - Trabalhar com APIs REST
 - Aplicar boas práticas de desenvolvimento
-- Resolver problemas de UX (validação de entrada, feedback visual)
+- Resolver problemas de UX (validação de entrada, formatação de dados, feedback visual)
 
 ---
 
@@ -276,4 +289,3 @@ Este projeto é um exemplo claro de como combinar tecnologias modernas para cria
 ---
 
 **Obrigado pela atenção!**
-
