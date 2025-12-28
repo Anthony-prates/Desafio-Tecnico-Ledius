@@ -143,6 +143,12 @@ select:focus {
   transform: translateY(-1px);
 }
 
+/* Remove outline padrão e mantém apenas o focus-visible */
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+  outline: none;
+}
+
 input:hover,
 select:hover {
   border-color: rgba(255, 255, 255, 0.2);
@@ -202,6 +208,15 @@ button:active {
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
 }
 
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
 /* Resultado */
 #resultado {
   margin-top: 24px;
@@ -219,13 +234,53 @@ button:active {
   align-items: center;
   justify-content: center;
   line-height: 1.6;
+  transition: opacity 0.3s ease;
+}
+
+/* Resultado vazio - oculta quando não há conteúdo */
+#resultado:empty {
+  display: none;
+}
+
+/* Acessibilidade - Reduzir movimento para usuários que preferem */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Estados de foco visível para acessibilidade */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Estado desabilitado do botão */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
-  .logo {
+  .logo-link {
     top: 20px;
     left: 20px;
+  }
+
+  .logo {
     width: 60px;
   }
 

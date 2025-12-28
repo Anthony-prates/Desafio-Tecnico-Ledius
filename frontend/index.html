@@ -2,7 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Simulador de Taxas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Simulador de taxas para calcular o valor líquido de vendas com diferentes métodos de pagamento (PIX, Débito, Crédito)"
+    />
+    <title>Simulador de Taxas - Ledius</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,35 +17,54 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="https://ledius.com.br/" class="logo-link">
-      <img src="assets/ledius.png" alt="Logo da empresa" class="logo" />
+    <a
+      href="https://ledius.com.br/"
+      class="logo-link"
+      aria-label="Ir para o site da Ledius"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        src="assets/ledius.png"
+        alt="Logo da Ledius"
+        class="logo"
+        width="120"
+        height="auto"
+      />
     </a>
 
-    <div class="container">
+    <main class="container">
       <h1>Simulador de Taxas</h1>
 
-      <label for="valor">Valor da venda:</label>
-      <input
-        type="text"
-        id="valor"
-        inputmode="decimal"
-        placeholder="Ex: 100,00"
-        autocomplete="off"
-      />
+      <form id="formCalculo" role="form" aria-label="Formulário de cálculo de taxas">
+        <label for="valor">Valor da venda:</label>
+        <input
+          type="text"
+          id="valor"
+          name="valor"
+          inputmode="numeric"
+          placeholder="R$ 0,00"
+          autocomplete="off"
+          aria-label="Digite o valor da venda em reais"
+          aria-required="true"
+        />
 
-      <label for="metodo">Método de pagamento:</label>
-      <select id="metodo">
-        <option value="">Selecione</option>
-        <option value="pix">Pix</option>
-        <option value="debito">Débito</option>
-        <option value="credito">Crédito</option>
-      </select>
+        <label for="metodo">Método de pagamento:</label>
+        <select id="metodo" name="metodo" aria-label="Selecione o método de pagamento" aria-required="true">
+          <option value="">Selecione</option>
+          <option value="pix">Pix</option>
+          <option value="debito">Débito</option>
+          <option value="credito">Crédito</option>
+        </select>
 
-      <button id="btnCalcular">Calcular Líquido</button>
+        <button type="button" id="btnCalcular" aria-label="Calcular valor líquido">
+          Calcular Líquido
+        </button>
+      </form>
 
-      <p id="resultado"></p>
-    </div>
+      <div id="resultado" role="status" aria-live="polite" aria-atomic="true"></div>
+    </main>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
